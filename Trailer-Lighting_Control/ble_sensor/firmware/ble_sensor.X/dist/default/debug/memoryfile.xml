@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/debug/ble_sensor.X.debug.elf">
+    <memory name="program">
+      <units>bytes</units>
+      <length>507392</length>
+      <used>172352</used>
+      <free>335040</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>130048</length>
+      <used>75980</used>
+      <free>54068</free>
+    </memory>
+  </executable>
+</project>
