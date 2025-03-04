@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project>
+  <executable name="dist/default/debug/mrml_central_unit.X.debug.elf">
+    <memory name="program">
+      <units>bytes</units>
+      <length>507392</length>
+      <used>210751</used>
+      <free>296641</free>
+    </memory>
+    <memory name="data">
+      <units>bytes</units>
+      <length>130048</length>
+      <used>88976</used>
+      <free>41072</free>
+    </memory>
+  </executable>
+</project>
