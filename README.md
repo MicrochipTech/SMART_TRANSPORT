@@ -23,9 +23,9 @@ Checkout the <a href="https://microchipsupport.force.com/s/" target="_blank">Tec
 
 The Smart Transport System is a vital demonstration of how modern industries can utilize Bluetooth LE-enabled IoT networks to significantly improve efficiency, automation, and real-time monitoring of critical assets. In practical applications, such systems are essential for optimizing operations in smart transportation, industrial automation, and intelligent infrastructure management. By facilitating seamless communication between sensors, actuators, and control systems, this technology meets the increasing demand for low-latency, reliable data exchange and control.
 
-## BLE Star Trailer Network
+## BLE Star Network Trailer 
 
-The BLE Star Trailer Network is an innovative application of Bluetooth Low Energy (BLE) technology designed to enhance the monitoring and control of various trailer functions. This cutting-edge solution leverages the advanced capabilities of the WBZ451 module, showcasing its multirole and multilink features to create a robust and efficient network.
+The BLE Star Network Trailer is an innovative application of Bluetooth Low Energy (BLE) technology designed to enhance the monitoring and control of various trailer functions. This cutting-edge solution leverages the advanced capabilities of the WBZ451 module, showcasing its multirole and multilink features to create a robust and efficient network.
 
 ### Key Features and Benefits:
 
@@ -35,8 +35,8 @@ The BLE Star Trailer Network is an innovative application of Bluetooth Low Energ
 
 - **Centralized Control**: The network topology features a central hub that manages communication between multiple BLE-enabled sensors and control units within the trailer, crucial for smart transportation systems.
 
-- **Enhanced Efficiency and Safety**: Real-time data exchange ensures that trailers operate at optimal performance levels, contributing to safer and more efficient transportation systems.
+- **Enhanced Efficiency and Safety**: Real-time data exchange ensures that trailer operates at optimal performance levels, contributing to safer and more efficient transportation systems.
 
 - **Scalability and Flexibility**: The network's design allows for easy scalability and adaptability, making it an ideal solution for complex trailer management systems.
 
-The BLE Star Trailer Network marks a significant advancement in smart transportation, offering a practical and scalable solution for modernizing trailer management. By enhancing real-time data exchange, centralized control, and fault detection, this network ensures that trailers operate at their best, leading to safer and more efficient transportation systems.
+The BLE Star Network Trailer  marks a significant advancement in smart transportation, offering a practical and scalable solution for modernizing trailer management. By enhancing real-time data exchange, centralized control, and fault detection, this network ensures that trailers operate at their best, leading to safer and more efficient transportation systems.
