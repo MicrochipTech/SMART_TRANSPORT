@@ -64,7 +64,7 @@ By establishing a Bluetooth LE star network, this system ensures efficient, low-
 
 ## 3. Hardware Setup<a name="step3">
 
-- In the RNBD451 Add on Board, the gpio pins are not brought out. For this application, the GPIO pin PA0 in the Remote module is connected to an NC pin on the Mikro Bus header. Using the relay we have connected the Solenoid by giving the Gpio pin(PA0) as Input to the relay. And in the same manner Gpio pin(PA0) is given to the Green line of the RGB Module.
+- Connect the QT7 Xpro extension board on the Ext1 header of WBZ351 Curiosity board. The PWM pin from the Mikro Bus header of WBZ351 curiosity board is connected to the PWM pin of the Servo motor.
 
 ## 4. Board Programming<a name="step4">
 
