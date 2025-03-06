@@ -1,4 +1,4 @@
-# PIC32CXBZ2_WBZ45x_BLE_Multi-Role_Multi-Link_Demo
+# Trailer-Central_Network_Unit
 
 <img src="Docs/IoT-Made-Easy-Logo.png" width=100>
 
@@ -6,7 +6,7 @@
 > "IOT Made Easy!" 
 
 Devices: **| PIC32CXBZ2 | WBZ45x |**<br>
-Features: **| BLE | MODBUS |**
+Features: **| BLE |**
 
 
 ## ⚠ Disclaimer
@@ -26,38 +26,53 @@ Checkout the <a href="https://microchipsupport.force.com/s/" target="_blank">Tec
 1. [Software Setup](#step3)
 1. [Harmony MCC Configuration](#step4) 
 1. [Board Programming](#step5)
-1. [Run the demo](#step6)
-1. [Related Applications](#step7)
 
 ## 1. Introduction<a name="step1">
 
-This example application demonstrates the Multi-Role Multi-Link application using WBZ451 Curiosity board.
-![](Docs/setup.png)
+The Trailer Central Network Unit serves as the central hub in a Bluetooth Low Energy (BLE) Star network, utilizing the WBZ451 Curiosity board. This application demonstrates the Multi-Role Multi-Link capabilities of the board, enabling it to manage communication between various connected sensors, actuators, and the Cabin display and control unit.
+
+1. **Multi-Role Multi-Link**
+   - The WBZ451 curiosity board can handle multiple roles and links simultaneously, meaning it can act as both a central and peripheral device, and maintain multiple connections at once.
+   - Using this feature the WBZ451 curiosity board can have upto 8 BLE connections.
+   - In this application the Trailer Central Network Unit has 7 peripheral connections and 1 central connection(Mobile phone).
+   
+2. **Scanning and Connecting**
+   - The WBZ451 curiosity board continuously scans for available Bluetooth LE devices within its range and establishes connections with them.
+   - This ensures that all relevant sensors and actuators are integrated into the network.
+   
+3. **Peripheral Advertising**
+   - The WBZ451 curiosity board also advertises as a peripheral device.
+   - Using the Microchip Bluetooth Data (MBD) app, the user can connect to the WBZ451 Curiosity Board to control and monitor the sensor network.
+   
+4. **Data Collection**
+   - Once connected, the WBZ451 curiosity board collects data from the sensors.
+   - This data can include environmental parameters, status updates from actuators, and other relevant information.
+
+By leveraging the capabilities of the WBZ451 Curiosity board, the central device ensures efficient and reliable communication within the Bluetooth LE Star network, facilitating seamless integration and control of all connected devices.
 
 ## 2. Bill of Materials<a name="step2">
 
 | Tools | Quantity |
 | :- | :- |
-| [PIC32CX-BZ2 and WBZ451 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV96B94A) | 8 |
-
+| [PIC32CX-BZ2 and WBZ451 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV96B94A) | 1 |
 
 ## 3. Software Setup<a name="step4">
 
 - [MPLAB X IDE ](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide#tabs)
 
     - Version: 6.20
-	- XC32 Compiler v4.10
-	- MPLAB® Code Configurator v5.1.17
-	- PIC32CX-BZ_DFP v1.0.107
+	- XC32 Compiler v4.40
+	- MPLAB® Code Configurator v5.5.1
+	- PIC32CX-BZ_DFP v1.4.243
 	- MCC Harmony
-	  - csp version: v3.14.0
-	  - core version: v3.11.1
-	  - CMSIS-FreeRTOS: v10.4.6
-	  - wireless_pic32cxbz_wbz: v1.1.0
-	  - wireless_ble: v1.0.0	  
-	  - dev_packs: v3.14.0
+	  - csp version: v3.19.5
+	  - core version: v3.13.5
+	  - CMSIS-FreeRTOS: v11.1.0
+	  - wireless_pic32cxbz_wbz: v1.6.0
+	  - wireless_ble: v1.3.0	  
+	  - dev_packs: v3.18.1
 	  - wolfssl version: v5.4.0
-	  - crypto version: v3.7.6
+	  - crypto version: v3.8.2
 	    
 - Any Serial Terminal application like [TERA TERM](https://download.cnet.com/Tera-Term/3000-2094_4-75766675.html) terminal application
 
@@ -72,7 +87,7 @@ This example application demonstrates the Multi-Role Multi-Link application usin
 
 **Step 1** - Connect the WBZ451 Curiosity board to the device/system using a micro-USB cable.
 
-**Step 2** - This application is built by using [BLE Sensor Application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor) as the building block. The project graph of the BLE Sensor application is shown below.
+**Step 2** - This application is built by using [BLE Sensor Application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor) as the building block. The changes made to the BLE S enosr application is mentioned below.
 
 | Note | The BLE Sensor application repository can be cloned/downloaded from this [link](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45). |
 | :- | :- |
@@ -86,11 +101,13 @@ This example application demonstrates the Multi-Role Multi-Link application usin
 
 - In the project graph, select BLE Stack and configure as follows.
 
-![](Docs/Ble_stack.png)
+![](Docs/ble_stack.png)
 
-- In the project graph, select Device Information Service and configure as follows.
+![](Docs/ble_stack2.png)
 
-![](Docs/dis.png)
+- In the project graph, select FreeRTOS and configure as follows.
+
+![](Docs/FreeRTOS.png)
 
 **Step 3** - [Generate](https://onlinedocs.microchip.com/pr/GUID-1F7007B8-9A46-4D03-AEED-650357BA760D-en-US-6/index.html?GUID-2EE03524-41FE-4EBA-8646-6D10AA72F365) the code.
 
@@ -108,11 +125,15 @@ This example application demonstrates the Multi-Role Multi-Link application usin
 	- "app_ble_conn_handler.c" and "app_ble_conn_handler.h"
 	- "app_trpc.c" and "app_trpc.h"
 	- "app_trps.c" and "app_trps.h"
+	- "app_timer" folder
 - Replace the above mentioned files in your project folder location(...\firmware\src).
-- Copy the "app_trspc_handler.c","app_trspc_handler.h","app_trsps_handler.c" and "app_trsps_handler.h"files, which can be found by navigating to the cloned repo path: "...\src\app_ble".
+- Copy the following files, which can be found by navigating to the cloned repo path: "...\src\app_ble".
+	- "app_trspc_handler.c","app_trspc_handler.h"
+	- "app_trsps_handler.c" and "app_trsps_handler.h"
+	- "app_ble.c"
 - Replace these files in your project folder location(...\firmware\src\app_ble).
 
-- Following the below mentioned steps please add the "app_trpc.c" and "app_trpc.h" to th Source files and header files respectively.
+- Following the below mentioned steps please add the "app_trpc.c" and "app_trpc.h" to the Source files and header files respectively.
 
 #### To add the folder to your MPLAB project
 - In Projects section, right click on Source files to add the ".c" file and right click on Header files to add the ".h" file.
@@ -134,14 +155,7 @@ This example application demonstrates the Multi-Role Multi-Link application usin
 **Step 8** - Clean and build the project. To run the project, select "Make and program device" button.
 
 ## 6. Board Programming<a name="step6">
-
-## Programming hex file:
-
-### Program the precompiled hex file using MPLAB X IPE
-
-- The Precompiled hex file is given in the hex folder.
-Follow the steps provided in the link to [program the precompiled hex file](https://microchipdeveloper.com/ipe:programming-device) using MPLABX IPE to program the pre-compiled hex image. 
-
+ 
 ### Build and program the application using MPLAB X IDE
 
 The application folder can be found by navigating to the following path: 
@@ -150,12 +164,3 @@ The application folder can be found by navigating to the following path:
 
 Follow the steps provided in the link to [Build and program the application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor#build-and-program-the-application-guid-3d55fb8a-5995-439d-bcd6-deae7e8e78ad-section).
 
-## 7. Run the demo<a name="step7">
-
-
-
-## 8. Related applications<a name="step8">
-
-- [BLE Applications](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble)
-- [WBZ45x BLE UART WITH E-PAPER DISPLAY](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_BLE_UART_E_PAPER_Display/blob/main/WBZ451_E_PAPER_BLE_UART)
-- [WBZ45x BLE Sensor Multi-Link Multi-Role Demo](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_BLE_SENSOR_Multi-Role)

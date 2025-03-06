@@ -74,13 +74,13 @@ By establishing a Bluetooth LE star network, this system ensures efficient, low-
 This module acts as the central hub of the Bluetooth LE network. It manages communication between all connected sensors, actuators, and the Cabin display and control unit. It is responsible for scanning and connecting to various Bluetooth LE devices, collecting data from them, and relaying this information to the display unit for real-time monitoring and control.
 
 #### [Trailer-Temperature_Monitoring](https://github.com/MicrochipTech/SMART_TRANSPORT/tree/main/BLE_StarNetwork_Trailer/Trailer-Temperature_Monitoring)
-This module monitors the temperature inside the trailer. It continuously reports the current temperature to the Trailer-Central_Network_Unit. The central unit also receives the desired temperature setpoint from the Cabin-DisplayAndControl_Unit and forwards it to the thermostat, which then regulates the HVAC system to maintain the set temperature.
+This module monitors the temperature inside the trailer. It continuously reports the current temperature to the Trailer Central Network Unit. The central unit also receives the desired temperature setpoint from the Cabin Display and Control Unit and forwards it to the thermostat, which then regulates the HVAC system to maintain the set temperature.
 
 #### [Trailer-Lighting_Control](https://github.com/MicrochipTech/SMART_TRANSPORT/tree/main/BLE_StarNetwork_Trailer/Trailer-Lighting_Control)
-This module controls the lighting within the trailer. It can be managed directly from the Cabin-DisplayAndControl_Unit, allowing users to turn lights on or off and adjust brightness levels as needed.
+This module controls the lighting within the trailer. It can be managed directly from the Cabin Display and Control Unit, allowing users to turn lights on or off and adjust brightness levels as needed.
 
 #### [Trailer-SolarPanel_Sensor](https://github.com/MicrochipTech/SMART_TRANSPORT/tree/main/BLE_StarNetwork_Trailer/Trailer-SolarPanel_Sensor)
-This module continuously monitors the voltage levels of the trailer's solar panels. It reports this data to the Trailer-Central_Network_Unit, which updates the information on the Cabin Display And Control Unit. This helps in ensuring that the solar panels are functioning correctly and efficiently.
+This module continuously monitors the voltage levels of the trailer's solar panels. It reports this data to the Trailer Central Network Unit, which updates the information on the Cabin Display And Control Unit. This helps in ensuring that the solar panels are functioning correctly and efficiently.
 
 #### [Trailer-Door_Control](https://github.com/MicrochipTech/SMART_TRANSPORT/tree/main/BLE_StarNetwork_Trailer/Trailer-Door_Control)
 This module manages the operation of the trailer doors. It can be operated either by physical touch or remotely via the Cabin Display And Control Unit. This allows for secure and convenient access control.
