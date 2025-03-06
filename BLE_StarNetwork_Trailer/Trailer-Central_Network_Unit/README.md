@@ -31,6 +31,8 @@ Checkout the <a href="https://microchipsupport.force.com/s/" target="_blank">Tec
 
 The Trailer Central Network Unit serves as the central hub in a Bluetooth Low Energy (BLE) Star network, utilizing the WBZ451 Curiosity board. This application demonstrates the Multi-Role Multi-Link capabilities of the board, enabling it to manage communication between various connected sensors, actuators, and the Cabin display and control unit.
 
+![](Docs/setup.png)
+
 1. **Multi-Role Multi-Link**
    - The WBZ451 curiosity board can handle multiple roles and links simultaneously, meaning it can act as both a central and peripheral device, and maintain multiple connections at once.
    - Using this feature the WBZ451 curiosity board can have upto 8 BLE connections.
@@ -87,17 +89,17 @@ By leveraging the capabilities of the WBZ451 Curiosity board, the central device
 
 **Step 1** - Connect the WBZ451 Curiosity board to the device/system using a micro-USB cable.
 
-**Step 2** - This application is built by using [BLE Sensor Application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor) as the building block. The changes made to the BLE S enosr application is mentioned below.
+**Step 2** - This application is built by using [BLE Sensor Application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor) as the building block. The changes made to the BLE Senosr application is mentioned below.
 
 | Note | The BLE Sensor application repository can be cloned/downloaded from this [link](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45). |
 | :- | :- |
 | File path | wireless_apps_pic32cxbz2_wbz45/apps/ble/advanced_applications/ble_sensor/ firmware/ ble_sensor.x |
 
-![](Docs/Project_graph.png)
+![](Docs/project_graph.png)
 
 - In the project graph, select Transaparent profile and configure as follows.
 
-![](Docs/Transparent_profile.png)
+![](Docs/transparent_profile.png)
 
 - In the project graph, select BLE Stack and configure as follows.
 
