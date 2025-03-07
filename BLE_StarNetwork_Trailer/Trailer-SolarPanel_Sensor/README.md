@@ -1,12 +1,12 @@
-# PIC32CXBZ2_WBZ45x_BLE_Multi-Role_Multi-Link_Demo
+# Trailer-SolarPanel_Sensor
 
-<img src="Docs/IoT-Made-Easy-Logo.png" width=100>
+<img src="docs/IoT-Made-Easy-Logo.png" width=100>
 
 
 > "IOT Made Easy!" 
 
 Devices: **| PIC32CXBZ2 | WBZ45x |**<br>
-Features: **| BLE | MODBUS |**
+Features: **| BLE | SOLAR |**
 
 
 ## ⚠ Disclaimer
@@ -24,24 +24,23 @@ Checkout the <a href="https://microchipsupport.force.com/s/" target="_blank">Tec
 1. [Introduction](#step1)
 1. [Bill of materials](#step2)
 1. [Software Setup](#step3)
-1. [Harmony MCC Configuration](#step4) 
-1. [Board Programming](#step5)
-1. [Run the demo](#step6)
-1. [Related Applications](#step7)
+1. [Hardware Setup](#step4)
+1. [Harmony MCC Configuration](#step5) 
+1. [Board Programming](#step6)
 
 ## 1. Introduction<a name="step1">
 
-This example application demonstrates the Multi-Role Multi-Link application using WBZ451 Curiosity board.
-![](Docs/setup.png)
+Trailer-Temperature Monitoring uses a BLE sensor control pipe of the WBZ451 to monitor and manage the temperature within a trailer. The onboard temperature sensor measures the current temperature and sends this data to a central unit, which then relays it to a display. Users can set the desired temperature via the display, and this information is communicated back to the device through the central unit. The HVAC system is controlled based on the current and set temperatures. Additionally, all data can be monitored using the MBD app connected to the central device.
 
 ## 2. Bill of Materials<a name="step2">
 
 | Tools | Quantity |
 | :- | :- |
-| [PIC32CX-BZ2 and WBZ451 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV96B94A) | 8 |
+| [PIC32CX-BZ2 and WBZ451 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV96B94A) | 1 |
+| [DC 3V Relay High Level Driver](https://amzn.in/d/4CCwwRJ) | 1 |
+| [DC 12V 7025 Cooling Fan](https://amzn.in/d/aeCTyfG) | 1 |
 
-
-## 3. Software Setup<a name="step4">
+## 3. Software Setup<a name="step3">
 
 - [MPLAB X IDE ](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide#tabs)
 
@@ -63,7 +62,11 @@ This example application demonstrates the Multi-Role Multi-Link application usin
 
 - [MPLAB X IPE v6.20](https://microchipdeveloper.com/ipe:installation)
 
-## 4. Harmony MCC Configuration<a name="step5">
+## 4. Hardware Setup<a name="step4">
+
+- Connect the AN pin of WBZ451 Curiosity Board to the Solar panel. Please connect the Ground.
+
+## 5. Harmony MCC Configuration<a name="step5">
 
 ### Getting Started with Modbus Server application with the WBZ451 Curiosity Board
 
@@ -78,19 +81,15 @@ This example application demonstrates the Multi-Role Multi-Link application usin
 | :- | :- |
 | File path | wireless_apps_pic32cxbz2_wbz45/apps/ble/advanced_applications/ble_sensor/ firmware/ ble_sensor.x |
 
-![](Docs/Project_graph.png)
+![](docs/project_graph.png)
 
-- In the project graph, select Transaparent profile and configure as follows.
+- Select ADCHS and configure as shown below.
 
-![](Docs/Transparent_profile.png)
+![](docs/adchs.png)
 
-- In the project graph, select BLE Stack and configure as follows.
+- In the project graph, go to Plugins and select Pin configuration.
 
-![](Docs/Ble_stack.png)
-
-- In the project graph, select Device Information Service and configure as follows.
-
-![](Docs/dis.png)
+![](docs/Pin_configuration.png)
 
 **Step 3** - [Generate](https://onlinedocs.microchip.com/pr/GUID-1F7007B8-9A46-4D03-AEED-650357BA760D-en-US-6/index.html?GUID-2EE03524-41FE-4EBA-8646-6D10AA72F365) the code.
 
@@ -106,20 +105,7 @@ This example application demonstrates the Multi-Role Multi-Link application usin
 	- "app.c" and "app.h",
 	- "app_ble_sensor.c" and "app_ble_sensor.h",
 	- "app_ble_conn_handler.c" and "app_ble_conn_handler.h"
-	- "app_trpc.c" and "app_trpc.h"
-	- "app_trps.c" and "app_trps.h"
 - Replace the above mentioned files in your project folder location(...\firmware\src).
-- Copy the "app_trspc_handler.c","app_trspc_handler.h","app_trsps_handler.c" and "app_trsps_handler.h"files, which can be found by navigating to the cloned repo path: "...\src\app_ble".
-- Replace these files in your project folder location(...\firmware\src\app_ble).
-
-- Following the below mentioned steps please add the "app_trpc.c" and "app_trpc.h" to th Source files and header files respectively.
-
-#### To add the folder to your MPLAB project
-- In Projects section, right click on Source files to add the ".c" file and right click on Header files to add the ".h" file.
-- Select "Add existing items from folder".
-- Select Add and browse the location of the folder (...\firmware\src).
-- Make sure the "Files of type" is "C Source files" while adding ".c" files and "Header files" while adding ".h" files.
-- Select the folder and click "add".
 
 **Step 6** - In "app_user_edits.c", make sure the below code line is commented 
 
@@ -128,19 +114,12 @@ This example application demonstrates the Multi-Role Multi-Link application usin
 **Step 7** - From projects, go to "app_adv.h" file and add this code in line 104.
 
 ```
-#define APP_ADV_PROD_TYPE_BLE_SENSOR_MRML                                           0x04          /**< Product Type: BLE Sesnor */
+#define APP_ADV_PROD_TYPE_ST_SOLAR_PANEL                                            0xA5         /**< Product Type: BLE Solar Sensor*/
 ```
 
 **Step 8** - Clean and build the project. To run the project, select "Make and program device" button.
 
 ## 6. Board Programming<a name="step6">
-
-## Programming hex file:
-
-### Program the precompiled hex file using MPLAB X IPE
-
-- The Precompiled hex file is given in the hex folder.
-Follow the steps provided in the link to [program the precompiled hex file](https://microchipdeveloper.com/ipe:programming-device) using MPLABX IPE to program the pre-compiled hex image. 
 
 ### Build and program the application using MPLAB X IDE
 
@@ -149,13 +128,3 @@ The application folder can be found by navigating to the following path:
 - ".../firmware/"
 
 Follow the steps provided in the link to [Build and program the application](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble/advanced_applications/ble_sensor#build-and-program-the-application-guid-3d55fb8a-5995-439d-bcd6-deae7e8e78ad-section).
-
-## 7. Run the demo<a name="step7">
-
-
-
-## 8. Related applications<a name="step8">
-
-- [BLE Applications](https://github.com/Microchip-MPLAB-Harmony/wireless_apps_pic32cxbz2_wbz45/tree/master/apps/ble)
-- [WBZ45x BLE UART WITH E-PAPER DISPLAY](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_BLE_UART_E_PAPER_Display/blob/main/WBZ451_E_PAPER_BLE_UART)
-- [WBZ45x BLE Sensor Multi-Link Multi-Role Demo](https://github.com/MicrochipTech/PIC32CXBZ2_WBZ45x_BLE_SENSOR_Multi-Role)

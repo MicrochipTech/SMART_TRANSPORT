@@ -83,7 +83,7 @@ Trailer-Temperature Monitoring uses a BLE sensor control pipe of the WBZ451 to m
 
 ![](docs/project_graph.png)
 
-- In the project graph, got to Plugins and select Pin configuration.
+- In the project graph, go to Plugins and select Pin configuration.
 
 ![](docs/Pin_configuration.png)
 

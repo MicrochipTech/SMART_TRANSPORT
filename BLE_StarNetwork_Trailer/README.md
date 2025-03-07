@@ -88,12 +88,11 @@ This module manages the operation of the trailer doors. It can be operated eithe
 #### [Trailer-Alarm_Control](https://github.com/MicrochipTech/RNBD451_HOSTLESS_MODE/blob/main/README.md#to-configure-the-rnbd-remote-module)
 This module is responsible for triggering alarms in case of any detected faults or emergencies. If the Trailer Central Network Unit detects an issue, such as a fault in the HVAC system, it activates the Trailer Alarm Control to alert users.
 
+#### [Trailer-HVAC_FaultDetection](https://github.com/MicrochipTech/SMART_TRANSPORT/blob/main/BLE_StarNetwork_Trailer/Hex/hvac_fault_detection.X.production.hex)
+This module monitors the HVAC system's motor, detecting its operational state (on, off) and identifying potential faults. If a fault is detected, it sends an alert to the Trailer Central Network Unit, which then triggers the Trailer Alarm Control to notify users.
+
 #### [Cabin-DisplayAndControl_Unit]()
 This module serves as the user interface for the entire system. It displays real-time data from all connected sensors and allows users to control various aspects of the trailer, such as temperature, lighting, and door operations. It ensures that users have a comprehensive view and control over the trailer's environment.
 
-#### [Trailer-HVAC_FaultDetection]()
-This module monitors the HVAC system's motor, detecting its operational state (on, off) and identifying potential faults. If a fault is detected, it sends an alert to the Trailer Central Network Unit, which then triggers the Trailer Alarm Control to notify users.
-
 By integrating these modules into a cohesive Bluetooth LE network, the Smart Transport System ensures efficient, low-latency communication and control, making it ideal for applications in smart transportation, industrial automation, and intelligent building management.
 
-## 5. Run the demo<a name="step5">
