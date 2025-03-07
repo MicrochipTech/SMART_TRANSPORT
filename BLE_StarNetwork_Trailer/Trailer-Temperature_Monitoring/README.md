@@ -24,25 +24,23 @@ Checkout the <a href="https://microchipsupport.force.com/s/" target="_blank">Tec
 1. [Introduction](#step1)
 1. [Bill of materials](#step2)
 1. [Software Setup](#step3)
-1. [Harmony MCC Configuration](#step4) 
-1. [Board Programming](#step5)
-1. [Run the demo](#step6)
-1. [Related Applications](#step7)
+1. [Hardware Setup](#step4)
+1. [Harmony MCC Configuration](#step5) 
+1. [Board Programming](#step6)
 
 ## 1. Introduction<a name="step1">
 
 Trailer-Temperature Monitoring uses a BLE sensor control pipe of the WBZ451 to monitor and manage the temperature within a trailer. The onboard temperature sensor measures the current temperature and sends this data to a central unit, which then relays it to a display. Users can set the desired temperature via the display, and this information is communicated back to the device through the central unit. The HVAC system is controlled based on the current and set temperatures. Additionally, all data can be monitored using the MBD app connected to the central device.
 
-![](docs/setup.png)
-
 ## 2. Bill of Materials<a name="step2">
 
 | Tools | Quantity |
 | :- | :- |
-| [PIC32CX-BZ2 and WBZ451 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV96B94A) | 8 |
+| [PIC32CX-BZ2 and WBZ451 Curiosity Development Board](https://www.microchip.com/en-us/development-tool/EV96B94A) | 1 |
+| [DC 3V Relay High Level Driver](https://amzn.in/d/4CCwwRJ) | 1 |
+| [DC 12V 7025 Cooling Fan](https://amzn.in/d/aeCTyfG) | 1 |
 
-
-## 3. Software Setup<a name="step4">
+## 3. Software Setup<a name="step3">
 
 - [MPLAB X IDE ](https://www.microchip.com/en-us/tools-resources/develop/mplab-x-ide#tabs)
 
@@ -64,7 +62,11 @@ Trailer-Temperature Monitoring uses a BLE sensor control pipe of the WBZ451 to m
 
 - [MPLAB X IPE v6.20](https://microchipdeveloper.com/ipe:installation)
 
-## 4. Harmony MCC Configuration<a name="step5">
+## 4. Hardware Setup<a name="step4">
+
+- Connect the AN pin of WBZ451 Curiosity Board to the input of the relay. Here we are using a relay to connect to the fan since the operating voltage is 12V.
+
+## 5. Harmony MCC Configuration<a name="step5">
 
 ### Getting Started with Modbus Server application with the WBZ451 Curiosity Board
 
