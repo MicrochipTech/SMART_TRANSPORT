@@ -40,3 +40,18 @@ The BLE Star Network Trailer is an innovative application of Bluetooth Low Energ
 - **Scalability and Flexibility**: The network's design allows for easy scalability and adaptability, making it an ideal solution for complex trailer management systems.
 
 The BLE Star Network Trailer  marks a significant advancement in smart transportation, offering a practical and scalable solution for modernizing trailer management. By enhancing real-time data exchange, centralized control, and fault detection, this network ensures that trailers operate at their best, leading to safer and more efficient transportation systems.
+
+
+## Seamless Connection Switching in Bluetooth&reg; Applications
+
+The Seamless Connection Switching in Bluetooth&reg; Applications feature, also known as 'BLE Handover', enables efficient management of multiple connections by connecting up to four devices via Bluetooth&reg; LE to a smartphone for control and monitoring purposes. This feature allows for a single connection instead of four separate connections for controlling and monitoring all devices, ensuring a stable and uninterrupted connection.
+
+This approach offers several benefits, including:
+
+- The ability to control your application using Bluetooth® LE.
+- Always being connected to the 'best' device.
+- Achieving a stable and uninterrupted connection.
+- Additionally, this solution is purely software-based, requiring no changes to the mobile device.
+
+For more information, see [PIC32CXBZx_WBZx51_BLE_HANDOVER_CAN](https://github.com/MicrochipTech/PIC32CXBZx_WBZx51_BLE_HANDOVER_CAN).
+
