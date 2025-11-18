@@ -72,7 +72,7 @@ The Trailer-Door Control system utilizes a WBZ351 board in conjunction with a QT
 
 ## 5. Harmony MCC Configuration<a name="step5">
 
-### Getting Started with Modbus Server application with the WBZ451 Curiosity Board
+### Getting Started with Servo Motor application with the WBZ451 Curiosity Board
 
 | Tip | New users of MPLAB Code Configurator are recommended to go through the [overview](https://onlineDocs.microchip.com/pr/GUID-1F7007B8-9A46-4D03-AEED-650357BA760D-en-US-6/index.html?GUID-AFAB9227-B10C-4FAE-9785-98474664B50A) |
 | :- | :- |
